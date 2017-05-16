@@ -12,11 +12,10 @@ public class Story {
     public Story() {
         pages = new Page[7];
 
-        pages[0] - new Page(R.drawable.page0,
-                            R.string.page0,
-                            new choice(R.string.page0_choice1, 1),
-                            new choice(R.string.page0_choice2, 2);
-                )
+        pages[0] = new Page(R.drawable.page0,
+                R.string.page0,
+                new Choice(R.string.page0_choice1, 1),
+                new Choice(R.string.page0_choice2, 2));
 
         pages[1] = new Page(R.drawable.page1,
                 R.string.page1,
@@ -47,5 +46,12 @@ public class Story {
 //        pages[0].setTextId(R.string.page0);
 //        pages[0].setChoice1(new choice());
 //        pages[0].setChoice2(new choice());
+    }
+
+    public Page getPage(int pageNumber) {
+        if (pageNumber == pages.length) {
+            pageNumber = 0;
+        }
+        return pages[pageNumber];
     }
 }
